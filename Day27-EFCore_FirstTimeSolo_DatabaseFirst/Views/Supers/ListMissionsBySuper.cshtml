@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "ListMissionsBySuper";
+}
+@model List<Mission>
+<h1>Mission List:</h1>
+<table class="table">
+    <tr>
+        <th>Mission:</th>
+        <th>Completed?</th>
+        <th>Diffuclty Level:</th>
+        <th>Due Date:</th>
+    </tr>
+    @foreach (Mission mission in Model)
+    {
+        <tr>
+            <td>@mission.MissionName</td>
+            <td>@mission.Completed</td>
+            <td>@mission.Difficulty</td>
+            <td>@mission.DueDate</td>
+            <td>
+                <a href="../Supers/ChangeStatus?id=@mission.Id">Change Mission Status</a>
+            </td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+@model List<Super>
+
+<h1>Character List:</h1>
+
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Hero Name</th>
+        <th>Super Power</th>
+        <th>Power Level</th>
+        <th>Caped?</th>
+        <th>Good?</th>
+    </tr>
+    @foreach (Super hero in Model)
+    {
+<tr>
+    <td>@hero.Name</td>
+    <td>@hero.SuperName</td>
+    <td>@hero.Power</td>
+    <td>@hero.PowerLevel</td>
+    <td>@hero.Cape</td>
+    @if (hero.Good == false)
+    {
+        <td style="color:red">@hero.Good</td>
+    }
+    else
+    {
+        <td style="color:green">@hero.Good</td>
+    }
+    <td>
+        <a href="../Supers/ListMissionsBySuper?id=@hero.Id">See Missions</a>
+    </td>
+
+</tr>
+    }
+
+</table>
